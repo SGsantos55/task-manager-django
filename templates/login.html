@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}signup{% endblock title %}
+{% block body %}
+<form method='POST' action=''>
+    {% csrf_token %}
+    <label for='username'>Username:</label>
+    <input type='username' id='username' name='username' placeholder='enter name'/>
+    <br>
+    <label for='password'>Password:</label>
+    <input type='password' id='password' name='password' placeholder='enter password'/>
+    <br>
+
+    <button>Submit</button>
+</form>
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+{% endblock body %}

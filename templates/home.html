@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block title %}Login - Todo App{% endblock title %}
+
+{% block custom_css %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'main.css' %}"/>
+{% endblock custom_css %}
+
+{% block body %}
+
+    <div class="container">
+        <!-- Todo App Header -->
+        <div class="todo-header">
+            <h1>Todo App</h1>
+        </div>
+
+        <div class="login-box">
+            <h2>Login</h2>
+            <form action="{% url 'login_user' %}" method="POST">
+                {% csrf_token %}
+                <div class="textbox">
+                    <input type="text" id="username" name="username" placeholder="Enter username" required/>
+                </div>
+                <div class="textbox">
+                    <input type="password" id="password" name="password" placeholder="Enter password" required/>
+                </div>
+                <div class="button-container">
+                    <button type="submit">Login</button>
+                </div>
+            </form>
+            <p class="register-text">Don't have an account? <a href="{% url 'sign' %}">Register here</a></p>
+        </div>
+
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
+
+{% endblock body %}
+
+{% block custom_js %}
+{% load static %}
+<script src="{% static 'main.js' %}"></script>
+{% endblock custom_js %}

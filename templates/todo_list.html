@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block title %}Todo List{% endblock title %}
+
+{% block custom_css %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'todo.css' %}"/>
+{% endblock custom_css %}
+
+{% block body %}
+<div class="todo-container">
+    <h2>My TODOs</h2>
+    
+    <div class="user-info">
+        <p>Welcome, <strong>{{ request.user.username }}</strong></p>
+        <a href="{% url 'logout_user' %}" class="logout-button">Logout</a>
+    </div>
+
+    <div class="task-summary">
+        <p><strong>Available Tasks:</strong> <span id="available-tasks">{{ available_tasks }}</span></p>
+        <p><strong>Finished Tasks:</strong> <span id="finished-tasks">{{ finished_tasks }}</span></p>
+    </div>
+
+
+    <a href="{% url 'create_todo' %}" class="add-task-button">Add New Task</a>
+
+    <ul class="todo-list">
+        {% for todo in todos %}
+        <li class="todo-item {% if todo.completed %}completed{% endif %}">
+            <div class="todo-details">
+                <strong>{{ todo.title }}</strong> - {{ todo.description }}
+                <span class="status {% if todo.completed %}completed-status{% else %}in-progress-status{% endif %}">
+                    {% if todo.completed %} ✅ {% else %} ⏳ {% endif %}
+                </span>
+            </div>
+            <div class="todo-actions">
+                <a href="{% url 'update_todo' pk=todo.id %}" class="edit-button">Edit</a> |
+                <a href="{% url 'delete_todo' pk=todo.id %}" class="delete-button">Delete</a>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+
+{% endblock body %}
+
+{% block custom_js %}
+{% load static %}
+<script src="{% static 'todo.js' %}"></script>
+{% endblock custom_js %}
