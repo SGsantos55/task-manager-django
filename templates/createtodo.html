@@ -1,31 +1,44 @@
 {% extends "base.html" %}
-{% block title %}Create Todo{% endblock title %}
 
-{% block custom_css %}
+{% block title %}Create Todo{% endblock title %}
 {% load static %}
-<link rel="stylesheet" href="{% static 'create_todo.css' %}"/>
+{% block custom_css %}
+
+<link rel="stylesheet" href="{% static 'create.css' %}">
 {% endblock custom_css %}
 
 {% block body %}
 <div class="todo-container">
     <h2>Create New Todo</h2>
+
     <form method="POST" action="" class="todo-form" id="todoForm">
         {% csrf_token %}
-        {{ form.as_p }}
+        
+        {% for field in form %}
+        <div class="form-group">
+            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+            {{ field }}
+            {% if field.errors %}
+            <div class="error-message">
+                {{ field.errors.as_text }}
+            </div>
+            {% endif %}
+        </div>
+        {% endfor %}
+
         <button type="submit" class="submit-btn">Submit</button>
     </form>
 
     {% if messages %}
     <ul class="messages">
         {% for message in messages %}
-        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+            {{ message }}
+        </li>
         {% endfor %}
     </ul>
     {% endif %}
 </div>
 
-{% block custom_js %}
-{% load static %}
-<script src="{% static 'create_todo.js' %}"></script>
-{% endblock custom_js %}
+
 {% endblock body %}
