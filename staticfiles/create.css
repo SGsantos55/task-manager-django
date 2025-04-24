@@ -1,0 +1,121 @@
+/* General Page Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e3f2fd; /* Light Blue Background */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Todo Container */
+.todo-container {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    width: 400px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.todo-container:hover {
+    transform: scale(1.02);
+}
+
+/* Heading */
+.todo-container h2 {
+    margin-bottom: 15px;
+    color: #0277bd;
+    font-size: 22px;
+}
+
+/* Form Styling */
+.todo-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Form Group */
+.form-group {
+    text-align: left;
+}
+
+.form-group label {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+    display: block;
+}
+
+/* Input Fields */
+.todo-form input,
+.todo-form textarea,
+.todo-form select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    outline: none;
+    transition: border 0.3s;
+}
+
+.todo-form input:focus,
+.todo-form textarea:focus,
+.todo-form select:focus {
+    border-color: #0277bd;
+}
+
+/* Submit Button */
+.submit-btn {
+    background-color: #0277bd;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s ease-in-out;
+}
+
+.submit-btn:hover {
+    background-color: #01579b;
+}
+
+/* Messages */
+.messages {
+    list-style: none;
+    padding: 0;
+    margin-top: 15px;
+}
+
+.messages li {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 10px;
+    border-left: 4px solid #28a745;
+    margin-top: 5px;
+    border-radius: 5px;
+}
+
+/* Error Messages */
+.error-message {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 8px;
+    border-left: 4px solid #dc3545;
+    border-radius: 5px;
+    margin-top: 5px;
+    font-size: 14px;
+}
+
+/* Responsive Design */
+@media (max-width: 450px) {
+    .todo-container {
+        width: 90%;
+    }
+}

@@ -1,0 +1,162 @@
+/* Background Animation */
+@keyframes backgroundAnimation {
+    0% {
+        background-color: #f0f8ff;
+    }
+    50% {
+        background-color: #d3e4f5;
+    }
+    100% {
+        background-color: #f0f8ff;
+    }
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: #f0f8ff;
+    animation: backgroundAnimation 10s ease infinite;
+}
+
+/* Centering the Todo Container */
+.todo-container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    animation: slideIn 0.5s ease-out;
+}
+
+/* Add Slide-in Animation */
+@keyframes slideIn {
+    0% {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Style for Title */
+h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Styling for Add Task Button */
+.add-task-button {
+    display: inline-block;
+    padding: 12px 24px;
+    margin-top: 20px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.add-task-button:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+/* Task List Styling */
+.todo-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.todo-item {
+    background-color: #f9f9f9;
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.todo-item.completed {
+    background-color: #d3f8d3;
+    transform: scale(1.02);
+}
+
+.todo-item:hover {
+    background-color: #eef4f7;
+    transform: translateY(-2px);
+}
+
+.todo-details {
+    font-size: 1.2rem;
+}
+
+.todo-actions a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #007BFF;
+    transition: color 0.3s ease;
+}
+
+.todo-actions a:hover {
+    color: #0056b3;
+}
+
+/* Status Styling */
+.status {
+    font-size: 1.3rem;
+    padding-left: 15px;
+}
+
+.completed-status {
+    color: green;
+}
+
+.in-progress-status {
+    color: orange;
+}
+
+/* User Info and Logout Button */
+.user-info {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+}
+
+.logout-button {
+    background-color: #e74c3c;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.logout-button:hover {
+    background-color: #c0392b;
+    transform: scale(1.05);
+}
+
+/* Task Summary Styling */
+.task-summary {
+    margin: 20px 0;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.task-summary span {
+    font-weight: bold;
+}

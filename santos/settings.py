@@ -119,10 +119,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = '/static/'  # This is the URL prefix
 
-# This tells Django where to collect static files during deployment
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]  # This tells Django to look here
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')    # For collectstatic output (for production like Render)
+
 
 
 # Default primary key field type
