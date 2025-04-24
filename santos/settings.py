@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-jb#-nh_jz-%i%=1u)0zil97_s!*t=ft5nyz9mk(lagkh*6p-4^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['todo-santos.onrender.com']
+ALLOWED_HOSTS = ['santos.onrender.com']
 
 
 # Application definition
