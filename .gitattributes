@@ -1,0 +1,9 @@
+static/** linguist-vendored
+templates/** linguist-vendored
+*.html linguist-vendored
+*.js linguist-vendored
+*.css linguist-vendored
+*.png linguist-vendored
+*.jpg linguist-vendored
+*.jpeg linguist-vendored
+*.svg linguist-vendored
